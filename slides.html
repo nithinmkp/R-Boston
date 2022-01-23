@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>A Little thing called .customFont[purrr]</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Nithin M" />
+    <meta name="date" content="2022-01-23" />
+    <script src="slides_files/header-attrs/header-attrs.js"></script>
+    <link href="slides_files/remark-css/default.css" rel="stylesheet" />
+    <link href="slides_files/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link href="slides_files/tachyons/tachyons.min.css" rel="stylesheet" />
+    <script src="slides_files/xaringanExtra-webcam/webcam.js"></script>
+    <script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script>
+    <link href="slides_files/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="slides_files/tile-view/tile-view.js"></script>
+    <link href="slides_files/panelset/panelset.css" rel="stylesheet" />
+    <script src="slides_files/panelset/panelset.js"></script>
+    <script src="slides_files/clipboard/clipboard.min.js"></script>
+    <link href="slides_files/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="slides_files/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i> Copy","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"Press Ctrl+C to Copy"})</script>
+    <link href="slides_files/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="slides_files/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <meta name="description" content="Some tips and tricks for economists"/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="nithinmkp/Lightning-talk-pune"/>
+    <meta name="twitter:title" content="Lightning Talk"/>
+    <meta name="twitter:description" content="Some tips and tricks for economists"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta property="og:title" content="Lightning Talk"/>
+    <meta property="og:description" content="Some tips and tricks for economists"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="Nithin M"/>
+    <link href="slides_files/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="new_css.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# A Little thing called .customFont[purrr]
+## Lightning Talk
+### Nithin M
+### January 23, 2022
+
+---
+
+
+
+
+
+
+
+
+
+
+class: about-me-slide, inverse, middle, center
+
+# About Me
+
+&lt;img style="border-radius: 60%;" img src="img1.jpeg" width="150px"/&gt;
+
+## Nithin M
+ Doctoral Student, Economics
+
+.fade[Indian Institute of Technology-Kharagpur]
+---
+class: top, normal-slide
+
+# What this talk is about 
+--
+
+- Recursion
+--
+
+- Purrr package
+--
+
+- Some examples
+---
+class: normal-slide, top
+# Recursion
+
+--
+- repetitive works
+
+--
+- loops 
+
+--
+- apply family
+---
+class: inverse, middle, center, container-inv
+
+background-image: url("purrr.jpg")
+background-blend-mode: screen
+
+---
+class: normal-slide, top
+
+# Why purrr??
+
+- tidyverse integration
+- fast
+- type consistent
+
+---
+class:  top
+
+<style>.panelset{--panel-tab-foreground: #8A1538;--panel-tab-background: #f4f1de;--panel-tab-active-foreground: #fefae0;--panel-tab-active-background: #48284a;--panel-tab-inactive-opacity: 0.75;}</style>
+
+# Examples
+.panelset[
+.panel[.panel-name[Data Cleaning]
+- Renaming Dataframes
+- Column names
+- Merging Dataframes
+- Type conversion
+]
+
+.panel[.panel-name[Regressions]
+
+- Fitting multiple regressions
+- Extracting coefficients
+- Extracting other useful informations
+]
+
+.panel[.panel-name[ggplot]
+- multiple plots
+
+
+]
+
+
+
+]
+---
+class: imp_slide, center,middle
+
+# Live coding
+&lt;svg viewBox="0 0 640 512" style="position:relative;display:inline-block;top:.1em;height:3em;color:#122140;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+---
+.panelset.sideways[
+
+
+.panel[.panel-name[ggplot2]
+
+```r
+ggplot(Orange) +
+  aes(x = age, y = circumference, colour = Tree) +
+  geom_point() +
+  geom_line() +
+  guides(colour = "none") +
+  theme_bw()
+```
+
+
+
+]
+
+.panel[.panel-name[Plot]
+
+&lt;img src="slides_files/figure-html/panel-set-codes-1.png" width="100%" /&gt;
+
+]
+]
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": false,
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>\n"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
