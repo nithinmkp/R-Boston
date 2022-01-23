@@ -1,0 +1,195 @@
+---
+title: "A Little thing called .customFont[purrr]"
+subtitle: "Lightning Talk"  
+author: 
+  - "Nithin M"
+date: '`r format(Sys.Date(),"%B %d, %Y")`'
+output:
+  xaringan::moon_reader:
+    css: ["default", "metropolis-fonts", "new_css.css"]
+    seal: true
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: "16:9"
+      beforeInit: "macros.js"
+      countIncrementalSlides: false
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+      
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, fig.height=3.5, fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  fig.show = TRUE,
+  hiline = TRUE
+)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+library(xaringanExtra)
+style_duo_accent(
+  primary_color = "#1381B0",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF",
+  link_color = "#8d99ae",
+  inverse_link_color = "#edf2f4"
+)
+```
+```{r Libraries,include=FALSE}
+packages<-c("tidyverse","data.table","fontawesome","DT","xaringanExtra","here","icons")
+sapply(packages,library,character.only=T)
+xaringanExtra::use_tachyons()
+xaringanExtra::use_webcam()
+xaringanExtra::use_tile_view()
+xaringanExtra::use_panelset()
+
+```
+```{r xaringanExtra-clipboard, echo=FALSE}
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\"></i> Copy",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #90BE6D\"></i>",
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "Some tips and tricks for economists",
+    generator = "xaringan and remark.js"
+  ) %>% 
+  meta_name("github-repo" = "nithinmkp/Lightning-talk-pune") %>% 
+  meta_social(
+    title = "Lightning Talk",
+    og_author = "Nithin M"
+  )
+```
+```{r xaringan-extra-styles,include=FALSE}
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+```
+class: about-me-slide, inverse, middle, center
+
+# About Me
+
+<img style="border-radius: 60%;" img src="img1.jpeg" width="150px"/>
+
+## Nithin M
+ Doctoral Student, Economics
+
+.fade[Indian Institute of Technology-Kharagpur]
+---
+class: top, normal-slide
+
+# What this talk is about 
+--
+
+- Recursion
+--
+
+- Purrr package
+--
+
+- Some examples
+---
+class: normal-slide, top
+# Recursion
+
+--
+- repetitive works
+
+--
+- loops 
+
+--
+- apply family
+---
+class: inverse, middle, center, container-inv
+
+background-image: url("purrr.jpg")
+background-blend-mode: screen
+
+---
+class: normal-slide, top
+
+# Why purrr??
+
+- tidyverse integration
+- fast
+- type consistent
+
+---
+class:  top
+
+```{r xaringan-style,echo=FALSE}
+style_panelset_tabs(foreground = "#8A1538", background = "#f4f1de",inactive_opacity = 0.75,
+                    active_background = "#48284a",active_foreground = "#fefae0")
+```
+
+# Examples
+.panelset[
+.panel[.panel-name[Data Cleaning]
+- Renaming Dataframes
+- Column names
+- Merging Dataframes
+- Type conversion
+]
+
+.panel[.panel-name[Regressions]
+
+- Fitting multiple regressions
+- Extracting coefficients
+- Extracting other useful informations
+]
+
+.panel[.panel-name[ggplot]
+- multiple plots
+
+
+]
+
+
+
+]
+---
+class: imp_slide, center,middle
+
+# Live coding
+`r icons::icon_style(icons::fontawesome("code"), scale = 3, color = "#122140")`
+
+---
+.panelset.sideways[
+```{r panelset-setup,include=F}
+pan_names<-c(source = "ggplot2", output = "Plot")
+```
+
+```{r panel-set-codes, panelset = pan_names}
+ggplot(Orange) +
+  aes(x = age, y = circumference, colour = Tree) +
+  geom_point() +
+  geom_line() +
+  guides(colour = "none") +
+  theme_bw()
+```
+]
+
+
+
+

@@ -1,0 +1,30 @@
+/* Font sizes */
+.Huge { font-size: 800% }
+.huge { font-size: 700% }
+.LARGE { font-size: 600% }
+.Large { font-size: 450% }
+.larger { font-size: 300% }
+.bitlarger { font-size: 200% }
+.large { font-size: 130% }
+.midi { font-size: 85% }
+.small { font-size: 70% }
+.xsmall { font-size: 60% }
+.tiny { font-size: 50% }
+
+
+p.caption {
+  font-size: 2.0em;
+}
+
+/* custom.css */
+.left-code {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+}
+.right-plot {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+}
