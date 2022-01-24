@@ -1,0 +1,64 @@
+---
+title: "Gapmider"
+author: "Nithin"
+date: "20/01/2022"
+output: 
+  bookdown::html_document2:
+    keep_md: yes
+    toc: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE,
+	fig.topcaption=TRUE
+)
+library(tidyverse)
+library(gapminder)
+library(knitr)
+```
+# Continent wise analysis of gapminder data
+```{r,message=FALSE,warning=F,include=FALSE}
+plot_fn<-function(continent){
+       gapminder %>% 
+    filter(continent == eval(continent),
+           year == 1952) %>% 
+    ggplot(aes(x = pop,
+               y = gdpPercap)) +
+    geom_point()   
+}
+
+```
+
+```{r,echo=FALSE,results='asis'}
+src=map(levels(unique(gapminder$continent)),function(continent){
+        knitr::knit_expand(text = c(
+                "## Gapminder for {{continent}}",
+                "```{r gg-gapminder-{{tolower(continent)}}-scatter, fig.cap='Scatter plot for {{continent}}',dev='jpeg'}",
+                "plot_fn(continent)",
+                "```"
+        ))
+})
+res=knitr::knit_child(text=unlist(src),quiet=T)
+cat(res,sep = "\n")
+```
+
+# Objective
+generate code chunks , so that I can use internal cross-referencing properly.
+
+## Mannual Method
+````
+```{r gg-gapminder-europe-scatter, fig.cap="Scatter plot for Europe",,dev='jpeg'}`r ''` 
+plot_fn(Europe)
+```
+````
+This has to be repeated for all the continents. Now for referencing figure for Africa, we can do something like this
+-Figure \@ref(fig:gg-gapminder-africa-scatter) 
+
+## Programmatic Insertion
+
+To programmatically insert these we need `knitr::knit_expand()` and `purrr::map`
+
+

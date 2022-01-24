@@ -6,7 +6,7 @@ author:
 date: '`r format(Sys.Date(),"%B %d, %Y")`'
 output:
   xaringan::moon_reader:
-    css: ["default", "metropolis-fonts", "new_css.css"]
+    css: [ "metropolis-fonts", "new_css.css"]
     seal: true
     nature:
       highlightStyle: github
@@ -39,13 +39,7 @@ knitr::opts_chunk$set(
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 library(xaringanthemer)
 library(xaringanExtra)
-style_duo_accent(
-  primary_color = "#1381B0",
-  secondary_color = "#FF961C",
-  inverse_header_color = "#FFFFFF",
-  link_color = "#8d99ae",
-  inverse_link_color = "#edf2f4"
-)
+style_duo(primary_color = "#1F4257", secondary_color = "#F97B64")
 ```
 ```{r Libraries,include=FALSE}
 packages<-c("tidyverse","data.table","fontawesome","DT","xaringanExtra","here","icons")
@@ -54,6 +48,7 @@ xaringanExtra::use_tachyons()
 xaringanExtra::use_webcam()
 xaringanExtra::use_tile_view()
 xaringanExtra::use_panelset()
+xaringanExtra::use_scribble()
 
 ```
 ```{r xaringanExtra-clipboard, echo=FALSE}
@@ -85,42 +80,28 @@ xaringanExtra::use_extra_styles(
   mute_unhighlighted_code = TRUE  #<<
 )
 ```
+```{r xariganfont,include=F}
+style_xaringan(
+  text_font_family = "Droid Serif",
+  text_font_url = "https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic",
+  header_font_google = google_font("Source Code Pro")
+)
+
+```
+
 class: about-me-slide, inverse, middle, center
 
 # About Me
-
 <img style="border-radius: 60%;" img src="img1.jpeg" width="150px"/>
 
 ## Nithin M
  Doctoral Student, Economics
-
-.fade[Indian Institute of Technology-Kharagpur]
+ 
+.fade[Indian Institute of Technology-Kharagpur]  
+[`r icons::icon_style(fontawesome("twitter"),fill="white")` @nithin_eco](https://twitter.com/nithin_eco) 
+[`r icons::icon_style(icons::fontawesome("github"), scale = 1,fill="white")` @nithinmkp](https://github.com/nithinmkp)
 ---
-class: top, normal-slide
 
-# What this talk is about 
---
-
-- Recursion
---
-
-- Purrr package
---
-
-- Some examples
----
-class: normal-slide, top
-# Recursion
-
---
-- repetitive works
-
---
-- loops 
-
---
-- apply family
----
 class: inverse, middle, center, container-inv
 
 background-image: url("purrr.jpg")
@@ -136,6 +117,44 @@ class: normal-slide, top
 - type consistent
 
 ---
+# Loops and Apply family
+.panelset[
+
+```{r panel-setup,include=F}
+pan_names<-c(source="for-loop",output="Result")
+
+```
+```{r panelres,panelset=pan_names}
+mean_vec<-vector(mode = "double",length = ncol(mtcars))
+for(i in seq_along(mtcars)){
+  mean_vec[i]<-mean(mtcars[[i]],na.rm=T)
+}
+mean_vec
+
+median_vec<-vector(mode = "double",length = ncol(mtcars))
+for(i in seq_along(mtcars)){
+  median_vec[i]<-median(mtcars[[i]],na.rm=T)
+}
+median_vec
+```
+```{r panel-set2,include=F}
+pan_names2<-c(source="Apply",output="Result")
+
+```
+```{r panel-apply,panelset=pan_names2}
+df<-data.frame(col1=rnorm(5),
+               col2=letters[1:5],
+               col3=runif(5),
+               col4=words[1:5])
+df
+
+# Apply resutlt
+apply(df,2,class)
+```
+
+]
+
+---
 class:  top
 
 ```{r xaringan-style,echo=FALSE}
@@ -143,14 +162,8 @@ style_panelset_tabs(foreground = "#8A1538", background = "#f4f1de",inactive_opac
                     active_background = "#48284a",active_foreground = "#fefae0")
 ```
 
-# Examples
+# Applications
 .panelset[
-.panel[.panel-name[Data Cleaning]
-- Renaming Dataframes
-- Column names
-- Merging Dataframes
-- Type conversion
-]
 
 .panel[.panel-name[Regressions]
 
@@ -161,35 +174,43 @@ style_panelset_tabs(foreground = "#8A1538", background = "#f4f1de",inactive_opac
 
 .panel[.panel-name[ggplot]
 - multiple plots
+- Saving Multiple plots 
 
+.panel[.panel-name[Rmarkdown]
+- Parameterised Reports
+- Knitr code chunks
+]
 
 ]
 
 
 
 ]
+---
+# Some common .customFont[purrr] Functions
+
+### map
+```{verbatim map}
+map(.x,.f,...)
+```
+
+### map2  
+```{verbatim map2}
+map2 (.x,.y,.f,...)
+```
+---
+
+### pmap
+```{verbatim pmap}
+pmap(.l,.f,...)
+```
+### imap
+- stands for indexed map
+- simillar to map2 except that .y argument is names(.x)
 ---
 class: imp_slide, center,middle
 
 # Live coding
 `r icons::icon_style(icons::fontawesome("code"), scale = 3, color = "#122140")`
-
----
-.panelset.sideways[
-```{r panelset-setup,include=F}
-pan_names<-c(source = "ggplot2", output = "Plot")
-```
-
-```{r panel-set-codes, panelset = pan_names}
-ggplot(Orange) +
-  aes(x = age, y = circumference, colour = Tree) +
-  geom_point() +
-  geom_line() +
-  guides(colour = "none") +
-  theme_bw()
-```
-]
-
-
 
 

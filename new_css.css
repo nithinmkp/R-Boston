@@ -70,12 +70,18 @@
 
 
 .title-slide h1 {
-  font-size:          3em;
+  font-size:          4em;
+  font-weight:        600;
+  color:              #006d77;
+}
+
+.title-slide h2 {
+        font-size:    2.15em;
   font-weight:        600;
   color:              #006d77;
 }
 .title-slide h3 {
-  color:              red;
+  color:              var(--my-lblue);
   font-size:          1.1em;
   text-transform:     uppercase;
 }
@@ -94,7 +100,7 @@ a {
 }
 
 .title-slide{
-  background-color: #dce4e6;
+  background-color: #ba6f4d;
 }
 
 .remark-slide-number {
@@ -178,6 +184,19 @@ a {
 --my-red:            #600018;
 --my-pink:           #c09090;
 --my-lblue:          #98c1d9;
+--text-color: #000;
+--header-color: #000;
+--background-color: #FFF;
+--link-color: rgb(249, 38, 114);
+--code-highlight-color: rgba(255,255,0,0.5);
+--inverse-text-color: #d6d6d6;
+--inverse-background-color: #272822;
+--inverse-header-color: #f3f3f3;
+--inverse-link-color: rgb(249, 38, 114);
+--title-slide-background-color: #272822;
+--title-slide-text-color: #d6d6d6;
+--header-background-color: #000;
+--header-background-text-color: #FFF;
 }
 
 
@@ -230,3 +249,18 @@ list-style-type: square;
 .customFont{
         color: var(--my-coral);
 }
+
+
+.inverse h2 {
+  color: var(--my-lblue);
+}
+
+.inverse h3 {
+  color: var(--my-yellow);
+}
+
+
+.inverse a, .inverse a > code {
+  color: var(--inverse-link-color);
+}
+
